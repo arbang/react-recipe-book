@@ -5,11 +5,13 @@ const About = () => {
   return (
     <div>
       <Header/>
-      <h1>About This App</h1>
-      <p className='my-1'>
-        This is a React app for keeping and storing recipes using the MERN stack.
+      <p>
+        This is a React app for keeping and storing recipes built with the MERN stack.
       </p>
-      <p className='bg-dark p'>
+      <p>
+      Created March 2021
+      </p>
+      <p>
         <strong>Version</strong> 1.0.0
       </p>
     </div>

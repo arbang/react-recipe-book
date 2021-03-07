@@ -17,6 +17,7 @@ a {
   color: rgb(71, 71, 71);
   text-decoration: none; /* no underline */
 }
+
 .nav {
   top: 0;
   width: 100%;
@@ -60,6 +61,11 @@ nav li {
   padding: 10px;
   display: flex;
   align-content: center;
+}
+
+.bkmk-btn {
+  text-align: center !important;
+  cursor: pointer !important;
 }
 
 .recipes {

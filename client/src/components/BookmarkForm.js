@@ -6,10 +6,8 @@ const BookmarkForm = () => {
     const [image,setImage] = useState('');
     const [totalTime,setTotalTime] = useState('');
     const [url,setUrl] = useState('');
+    const[toggle, setToggle] = useState(true);
 
-    // const onChange = (e) =>{
-    //     setBookmark({...bookmark, [e.target.name]: e.target.value})
-    // }
     const onSubmit = (e) => {
         e.preventDefault();
         console.log({label,image,totalTime,url});
@@ -22,26 +20,32 @@ const BookmarkForm = () => {
         setImage('');
         setTotalTime('');
         setUrl('');
+        setToggle(!toggle);
      };
+
+     const toggleAdd = ()=>{
+        setToggle(!toggle);
+     }
 
     return (
         <div>
-            <form onSubmit={onSubmit}>
+            {toggle &&  (<div className='search-form'><input className='search-bar bkmk-btn' type="text" onClick={toggleAdd} placeholder='Add a new recipe'/></div>)}
+            {!toggle && (<form className='search-form'onSubmit={onSubmit}>
                 <div>
                     <input type="text" placeholder="title" value={label} onChange={(e)=> setLabel(e.target.value)}/>
                 </div>
                 <div>
-                    <input type="text" placeholder="img url" value={image} onChange={(e)=> setImage(e.target.value)}/>
+                    <input type="text" placeholder="cook time" value={totalTime} onChange={(e)=> setTotalTime(e.target.value)}/>
                 </div>
                 <div>
-                    <input type="text" placeholder="cook time" value={totalTime} onChange={(e)=> setTotalTime(e.target.value)}/>
+                    <input type="text" placeholder="img url" value={image} onChange={(e)=> setImage(e.target.value)}/>
                 </div>
                     <input type="text" placeholder="link" value={url} onChange={(e)=> setUrl(e.target.value)}/>
                 <div>
                     <input type='submit' value = 'Save'/>
                     <button type='text' onClick = {clearBookmark} value ='Clear Bookmark'>Clear</button>
                 </div>
-            </form>
+            </form>)}
         </div>
     )
 }
