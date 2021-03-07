@@ -19,7 +19,6 @@ const App = () => {
               <Route exact path='/about' component={About} />
               <Route exact path='/favorites' component={Favorites} />
               <Route exact path='/types' component={Types} />
-
           </Switch>
         </Router>
       </RecipeProvider>

@@ -1,6 +1,6 @@
 import { useReducer, createContext, useEffect } from 'react';
-// import axios from 'axios';
 import recipeReducer from './recipeReducer';
+import axios from 'axios';
 import {
     GET_RECIPES,
     SET_SEARCH,
@@ -29,21 +29,17 @@ export const RecipeProvider = (props) => {
       getRecipes();
     },[state.query]);
     useEffect(()=>{
-      console.log('getting bookmarks');
       getBookmarks();
     },[state.bookmark]);
     
     const getRecipes = async ()=>{
-      const response = await fetch(`https://api.edamam.com/search?q=${state.query}&app_id=${appId}&app_key=${appKeys}`);
-      const data = await response.json();
-      dispatch({ type: GET_RECIPES, payload: data.hits });
+      const res = await axios.get(`https://api.edamam.com/search?q=${state.query}&app_id=${appId}&app_key=${appKeys}`);
+      dispatch({ type: GET_RECIPES, payload: res.data.hits });
     }
     
     const getBookmarks = async () => {
-      const response = await fetch('/api/recipes');
-      const data = await response.json();
-      console.log(data);
-      dispatch({ type: GET_BOOKMARKS, payload: data});
+      const res = await axios.get('/api/recipes');
+      dispatch({ type: GET_BOOKMARKS, payload: res.data});
     // } 
     // catch (err) {
     //   dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
@@ -58,10 +54,17 @@ export const RecipeProvider = (props) => {
       dispatch({ type: SET_QUERY, payload: e.target.value });
     }
 
-    const addBookmark = (e)=>{
-        e.preventDefault();
-        dispatch({ type: ADD_BOOKMARK, payload: e.target.value });
+    const addBookmark = async (recipe)=>{
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
+        const res = await axios.post('/api/recipes', recipe, config);
+        dispatch({ type: ADD_BOOKMARK, payload: res.data});
+        console.log('this is all the ookmarks')
+        console.log(state.bookmarks);
+    }
 
     
     return (
