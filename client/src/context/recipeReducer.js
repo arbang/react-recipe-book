@@ -3,6 +3,7 @@ import {
   SET_SEARCH,
   SET_QUERY,
   ADD_BOOKMARK,
+  DELETE_BOOKMARK,
   GET_BOOKMARKS
 } from '../types';
 
@@ -33,6 +34,13 @@ const recipeReducer =  (state, action) => {
       return {
         ...state,
         bookmarks: [action.payload, ...state.bookmarks],
+        bookmark: true
+    }
+    case DELETE_BOOKMARK:
+      return {
+        ...state,
+        bookmarks: state.bookmarks.filter(
+          bookmark => bookmark._id !== action.payload),
         bookmark: true
     }
     default:

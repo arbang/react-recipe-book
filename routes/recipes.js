@@ -78,10 +78,10 @@ router.post('/', async (req, res) => {
 // @access  Private
 router.delete('/:id', async (req, res) => {
   try {
-    // let recipe = await recipe.findById(req.params.id);
+    // const recipe = await Recipe.findById(req.params.id);
     // if (!recipe) return res.status(404).send('recipe not found');
     console.log(req.params.id);
-    await recipe.findByIdAndRemove(req.params.id);
+    await Recipe.findByIdAndRemove(req.params.id);
     res.json({ msg: 'Recipe Removed' });
   } catch (err) {
     console.err(err.message);

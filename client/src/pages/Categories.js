@@ -1,11 +1,12 @@
 import Header from '../components/Header';
+import Types from '../components/Types';
 
-const Types = () => {
-console.log('types');
+const Categories = () => {
   return (
     <div className = 'App'>
         <Header className='App-header'/>
+        <Types />
     </div>
   );
 };
-export default Types;
+export default Categories;

@@ -18,6 +18,24 @@ a {
   text-decoration: none; /* no underline */
 }
 
+h3 {
+  justify-content: center;
+  max-width: 250px;
+}
+
+.icon {
+  position: absolute;
+  top: 38px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* button {
+  margin: 10px 20px;
+} */
+
 .nav {
   top: 0;
   width: 100%;
@@ -44,10 +62,31 @@ nav li {
   flex: 1;
 }
 
-.search-form {
-  margin: 10px;
+.hide {
+  display: none;
+}
+
+.container {
+  border: solid 1px;
+  width: 300px;
+  margin: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgb(71, 71, 71);
+  flex-wrap: wrap;
+}
+
+.container label {
+  text-align: left;
+}
+
+.search-form,
+form {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
   position: relative;
   align-items: center;
   border-radius: 20px;
@@ -73,11 +112,11 @@ nav li {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  flex-basis: 350px;
 }
 .recipe {
   border-radius: 10px;
   margin: 10px;
-
   flex-direction: column;
   align-items: center;
   box-shadow: 0px 5px 10px rgb(71, 71, 71);
@@ -85,6 +124,7 @@ nav li {
   height: 350px;
   width: 350px;
   justify-content: center;
+  position: relative;
 }
 
 .recipe img {

@@ -6,16 +6,23 @@ import {
     SET_SEARCH,
     SET_QUERY,
     ADD_BOOKMARK,
+    DELETE_BOOKMARK,
     GET_BOOKMARKS
 } from '../types';
 
 
 export const RecipeContext = createContext();
-export const RecipeProvider = (props) => {    
+export const RecipeProvider = (props) => { 
+  let random;
+  useEffect( ()=>{
+   random = String.fromCharCode(97+Math.floor(Math.random() * 26))
+    console.log(random);
+  }, []);
+
     const initialState = {
         recipes: [],
         bookmarks:[],
-        query: 'chicken',
+        query: random,
         search: '',
         bookmark: false
       };
@@ -28,6 +35,7 @@ export const RecipeProvider = (props) => {
     useEffect(()=>{
       getRecipes();
     },[state.query]);
+    
     useEffect(()=>{
       getBookmarks();
     },[state.bookmark]);
@@ -62,8 +70,11 @@ export const RecipeProvider = (props) => {
       }
         const res = await axios.post('/api/recipes', recipe, config);
         dispatch({ type: ADD_BOOKMARK, payload: res.data});
-        console.log('this is all the ookmarks')
-        console.log(state.bookmarks);
+    }
+
+    const deleteBookmark = async (id)=>{
+        await axios.delete(`/api/recipes/${id}`);
+        dispatch({ type: DELETE_BOOKMARK, payload: id});
     }
 
     
@@ -79,6 +90,7 @@ export const RecipeProvider = (props) => {
           updateSearch,
           updateQuery,
           addBookmark,
+          deleteBookmark,
           getBookmarks
       }}
     >
