@@ -1,6 +1,8 @@
-import Recipes from '../components/Recipes';
+// import Types from '../components/Types';
 import Header from '../components/Header';
 import Search from '../components/Search';
+import Recipes from '../components/Recipes';
+
 
 const Home = () => {
   return (
