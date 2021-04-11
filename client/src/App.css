@@ -1,63 +1,28 @@
 .App {
   text-align: center;
   font-family: sans-serif;
-  /* display: flex; */
+  display: block;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-a {
-  color: rgb(71, 71, 71);
-  text-decoration: none; /* no underline */
-}
-
-h1 {
-  float: left;
+/* NAV */
+.App-header h1 {
+  display: flex;
+  align-self: flex-start;
   padding-left: 25px;
+  width: 500px;
 }
 
-h3 {
-  justify-content: center;
-  max-width: 250px;
-}
-
-.icon {
-  position: absolute;
-  top: 38px;
-  right: 30px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-
-/* button {
-  margin: 10px 20px;
-} */
-
-.nav {
-  top: 0;
-  width: 100%;
-  transition: all 0.5s;
-  position: relative;
-  z-index: 1;
-  /* background: rgb(185, 182, 182, 0.3); */
-}
 nav {
-  top: 0;
   width: 100%;
+  display: flex;
   transition: all 0.5s;
-  position: relative;
   z-index: 1;
   flex-direction: column;
-  display: flex;
+  margin-top: 20px;
 }
 
 nav ul {
@@ -67,6 +32,31 @@ nav ul {
 
 nav li {
   flex: 1;
+}
+
+img {
+  margin: 15px 0px 0px 10px;
+  width: 50px;
+  height: 50px;
+}
+
+h3 {
+  justify-content: center;
+  max-width: 250px;
+}
+
+a {
+  color: rgb(71, 71, 71);
+  text-decoration: none; /* no underline */
+}
+
+.icon {
+  position: absolute;
+  top: 38px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .hide {
@@ -166,7 +156,6 @@ form {
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
-  /* opacity: 0.7; */
 }
 
 .category:hover {

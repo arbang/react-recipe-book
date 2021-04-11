@@ -4,9 +4,9 @@ import Search from '../components/Search';
 
 const Home = () => {
   return (
-    <div className = 'App'>
-        <Header className='App-header'/>
-        <Search />
+    <div>
+        <Header/>
+        <Search/>
        <Recipes/>
     </div>
   );

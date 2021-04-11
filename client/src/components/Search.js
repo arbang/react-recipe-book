@@ -10,9 +10,12 @@ const Search = () => {
   //   }
   // });
     return (
-     <form className='search-form' onSubmit={updateQuery}>
+     <div className='search'>
+     <form className ='search-form'onSubmit={updateQuery}>
         <input className='search-bar' type='text' placeholder='Search' value={search} onChange={updateSearch}/>
       </form>
+     </div> 
+
     )
 }
 

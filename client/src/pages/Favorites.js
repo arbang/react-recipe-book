@@ -5,8 +5,8 @@ import BookmarkForm from '../components/BookmarkForm';
 const Favorites = () => {
 
   return (
-    <div className = 'App'>
-        <Header className='App-header'/>
+    <div>
+        <Header/>
         <BookmarkForm/>
         <Bookmarks/>
     </div>

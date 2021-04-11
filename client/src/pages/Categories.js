@@ -1,10 +1,12 @@
 import Header from '../components/Header';
 import Types from '../components/Types';
+import Search from '../components/Types';
 
 const Categories = () => {
   return (
-    <div className = 'App'>
-        <Header className='App-header'/>
+    <div>
+        <Header/>
+        <Search/>
         <Types />
     </div>
   );
