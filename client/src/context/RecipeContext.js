@@ -41,6 +41,7 @@ export const RecipeProvider = (props) => {
     },[state.bookmark]);
     
     const getRecipes = async ()=>{
+      console.log(state.query);
       const res = await axios.get(`https://api.edamam.com/search?q=${state.query}&app_id=${appId}&app_key=${appKeys}`);
       dispatch({ type: GET_RECIPES, payload: res.data.hits });
     }
@@ -53,13 +54,25 @@ export const RecipeProvider = (props) => {
     //   dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
     }
     const updateSearch = (e)=>{
-      dispatch({ type: SET_SEARCH, payload: e.target.value });
-
+      let val; 
+      if(e.target){
+        val = e.target.value;
+        e.preventDefault(); 
+      }else{
+        val = e;
+      }
+      dispatch({ type: SET_SEARCH, payload: val });
     }
   
     const updateQuery = (e)=>{
-      e.preventDefault();
-      dispatch({ type: SET_QUERY, payload: e.target.value });
+      let val; 
+      if(e.target){
+        val = e.target.value;
+        e.preventDefault(); 
+      }else{
+        val = e;
+      }
+      dispatch({ type: SET_QUERY, payload: val});
     }
 
     const addBookmark = async (recipe)=>{

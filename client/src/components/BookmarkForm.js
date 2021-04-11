@@ -10,7 +10,6 @@ const BookmarkForm = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log({label,image,totalTime,url});
         addBookmark({label,image,totalTime,url});
         clearBookmark();
     }

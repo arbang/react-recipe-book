@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: sans-serif;
+  /* display: flex; */
 }
 
 .App-header {
@@ -7,7 +9,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -16,6 +17,11 @@
 a {
   color: rgb(71, 71, 71);
   text-decoration: none; /* no underline */
+}
+
+h1 {
+  float: left;
+  padding-left: 25px;
 }
 
 h3 {
@@ -42,6 +48,7 @@ h3 {
   transition: all 0.5s;
   position: relative;
   z-index: 1;
+  /* background: rgb(185, 182, 182, 0.3); */
 }
 nav {
   top: 0;
@@ -142,4 +149,63 @@ form {
   width: 350px;
   height: 350px;
   overflow: scroll;
+}
+
+.category {
+  border-radius: 10px;
+  margin: 10px;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 5px 10px rgb(71, 71, 71);
+  display: flex;
+  height: 250px;
+  width: 250px;
+  justify-content: center;
+  position: relative;
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  /* opacity: 0.7; */
+}
+
+.category:hover {
+  opacity: 70%;
+}
+
+.category h2 {
+  background-color: rgb(185, 182, 182, 0.7);
+  /* align-self: stretch; */
+  font-weight: bold;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px;
+  /* opacity: 70%; */
+}
+#breakfast {
+  background-image: url('images/breakfast.jpg');
+}
+
+#lunch {
+  background-image: url('images/lunch.jpg');
+}
+#dinner {
+  background-image: url('images/dinner.jpg');
+}
+#american {
+  background-image: url('images/american.jpg');
+}
+#asian {
+  background-image: url('images/asian.jpg');
+}
+#italian {
+  background-image: url('images/italian.jpg');
+}
+#drinks {
+  background-image: url('images/drinks.jpg');
+}
+#desserts {
+  background-image: url('images/desserts.jpg');
+}
+#snacks {
+  background-image: url('images/snacks.jpg');
 }
